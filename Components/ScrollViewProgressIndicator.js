@@ -10,7 +10,7 @@ import {
 
 const { width } = Dimensions.get("window");
 
-export default function ScrollViewProgressIndicator({ photos }) {
+export default function ScrollViewProgressIndicator({ images }) {
   const scrollX = new Animated.Value(0);
   let position = Animated.divide(scrollX, width);
 
@@ -18,8 +18,8 @@ export default function ScrollViewProgressIndicator({ photos }) {
     <View style={styles.container}>
       <View style={{ width, height: width }}>
         <ScrollView
-          horizontal={true}
-          pagingEnabled={true}
+          horizontal
+          pagingEnabled
           showsHorizontalScrollIndicator={false}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -27,7 +27,7 @@ export default function ScrollViewProgressIndicator({ photos }) {
           )}
           scrollEventThrottle={16}
         >
-          {photos.map((source, i) => {
+          {images.map((source, i) => {
             return (
               <Image key={i} style={{ width, height: width }} source={source} />
             );
@@ -35,7 +35,7 @@ export default function ScrollViewProgressIndicator({ photos }) {
         </ScrollView>
       </View>
       <View style={{ flexDirection: "row" }}>
-        {photos.map((_, i) => {
+        {images.map((_, i) => {
           let opacity = position.interpolate({
             inputRange: [i - 1, i, i + 1],
             outputRange: [0.3, 1, 0.3],
