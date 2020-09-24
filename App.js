@@ -1,5 +1,6 @@
 import React from "react";
 import CustomScrollingCarousel from "./Components/CustomScrollingCarousel";
+import CustomScrollingCarouselNoSpacing from "./Components/CustomScrollingCarouselNoSpacing";
 import ScrollViewProgressIndicator from "./Components/ScrollViewProgressIndicator";
 import SimpleCarousel from "./Components/SimpleCarousel";
 
@@ -11,9 +12,10 @@ export default function App() {
   ];
   return (
     <>
-      <SimpleCarousel style={{ flex: 1 }} images={images} />
-      <CustomScrollingCarousel style={{ flex: 1 }} images={images} />
-      <ScrollViewProgressIndicator style={{ flex: 1 }} images={images} />
+      {/* <SimpleCarousel style={{ flex: 1 }} images={images} /> */}
+      {/* <CustomScrollingCarousel style={{ flex: 1 }} images={images} /> */}
+      {/* <ScrollViewProgressIndicator style={{ flex: 1 }} images={images} /> */}
+      <CustomScrollingCarouselNoSpacing style={{ flex: 1 }} images={images} />
     </>
   );
 }
